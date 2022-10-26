@@ -53,15 +53,3 @@ if __name__ == '__main__':
     print('model trained with success!')
 
     
-
-#N,D = x_train.shape
-
-#model = tf.keras.models.Sequential([
-#    tf.keras.layers.Input(shape=(D,)),
-#   tf.keras.layers.Dense(1,activation='sigmoid')
-#])
-
-#model.compile(optimizer='adam',
-#                loss='binary-crossentropy',
-#                metrics=['accuracy'])
- 
