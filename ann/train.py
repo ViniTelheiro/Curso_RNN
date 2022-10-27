@@ -14,7 +14,7 @@ if __name__ == '__main__':
     
     history = model.fit(train_features, train_labels, batch_size=32, epochs=100,validation_split=.10, callbacks=[callback])
 
-    path='.log/train'
+    path='./log/train'
     if not os.path.isdir(path):
         os.makedirs(path)
     
