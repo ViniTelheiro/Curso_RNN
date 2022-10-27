@@ -7,10 +7,7 @@ import os
 import matplotlib.pyplot as plt
 import cv2
 import json
-
-def normalize(input:np.array):
-    for i in range(0,len(input)):
-        input[i] = (input[i].max() - input[i]) / (input[i].max() - input[i].min())
+from sklearn.preprocessing import StandardScaler
 
 
 def get_errors(predicted:np.array, labels:np.array, errors:dict):
@@ -33,8 +30,9 @@ if __name__ == '__main__':
     data = load_breast_cancer()
     train_features, test_features, train_labels, test_labels = train_test_split(data['data'], data['target'], test_size=0.3)
     
-    normalize(train_features)
-    normalize(test_features)
+    scaler = StandardScaler()
+    train_features = scaler.fit_transform(train_features)
+    test_features = scaler.fit_transform(test_features)
 
     model = tf.keras.models.Sequential([
         tf.keras.layers.Input(shape=(train_features.shape[1],)),
