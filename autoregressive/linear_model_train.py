@@ -1,6 +1,6 @@
 import numpy as np
-from synthetic_dataset import synthetic_dataset
-from model import get_model, get_ann_model
+from synthetic_dataset import synthetic_dataset_linear as synthetic_dataset
+from model import get_linear_model
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import os
@@ -11,8 +11,7 @@ if __name__ == "__main__":
 
     N = len(X)
 
-    #model = get_model()
-    model = get_ann_model()
+    model = get_linear_model()
 
     callback = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=10)
 
@@ -23,7 +22,7 @@ if __name__ == "__main__":
         callbacks=[callback]
     )
 
-    path = './log/'
+    path = './log/Linear_module'
     
     if not os.path.isdir(path):
         os.makedirs(path)
