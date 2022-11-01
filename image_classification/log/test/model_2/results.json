@@ -1,0 +1,4 @@
+{
+  "chekpoint": "./log/train/model_2/checkpoint.h5",
+  "acc": 0.9061999917030334
+}
